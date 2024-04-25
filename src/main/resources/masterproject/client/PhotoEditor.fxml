@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="1300.0" style="-fx-background-color: #212E2E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="masterproject.client.PhotoEditorController">
+   <top>
+       <MenuBar prefHeight="30.0" prefWidth="1300.0" style="-fx-background-color: #552D96;" BorderPane.alignment="CENTER">
+           <Menu mnemonicParsing="false">
+               <graphic>
+                   <Label text="File" textFill="WHITE">
+                       <font>
+                           <Font size="14.0" />
+                       </font>
+                   </Label>
+               </graphic>
+               <MenuItem fx:id="saveImage" disable="true" mnemonicParsing="false" onAction="#saveImage" text="Save" />
+               <MenuItem fx:id="resetImage" disable="true" mnemonicParsing="false" onAction="#reset" text="Reset" />
+               <MenuItem fx:id="importImage" mnemonicParsing="false" onAction="#loadImage" text="Import" />
+               <MenuItem fx:id="close" mnemonicParsing="false" onAction="#backToLanding" text="Close" />
+           </Menu>
+           <Menu fx:id="filtersMenu" disable="true" mnemonicParsing="false">
+               <graphic>
+                   <Label text="Filters" textFill="WHITE">
+                       <font>
+                           <Font size="14.0" />
+                       </font>
+                   </Label>
+               </graphic>
+               <MenuItem fx:id="grayscaleFilter" mnemonicParsing="false" onAction="#grayscaleFilter" text="Grayscale" />
+               <MenuItem fx:id="sepiaFilter" mnemonicParsing="false" onAction="#sepiaFilter" text="Sepia" />
+               <MenuItem fx:id="brightnessFilter" mnemonicParsing="false" onAction="#brightnessFilter" text="Brightness" />
+               <MenuItem fx:id="sharpenFilter" mnemonicParsing="false" onAction="#sharpenFilter" text="Sharpen" />
+               <MenuItem fx:id="gaussianFilter" mnemonicParsing="false" onAction="#gaussianFilter" text="Gaussian " />
+           </Menu>
+       </MenuBar>
+   </top>
+   <center>
+       <SplitPane dividerPositions="0.5" style="-fx-background-color: #212E2E;" BorderPane.alignment="CENTER">
+           <BorderPane fx:id="originallmagePane">
+              <center>
+                  <ImageView fx:id="originalImageView" fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                      <viewport>
+                          <Rectangle2D minX="350.0" minY="350.0" />
+                      </viewport>
+                      <Image url="@../../images/empty.jpg" />
+                  </ImageView>
+              </center>
+            <top>
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Original" textAlignment="CENTER">
+                        <font>
+                           <Font size="24.0" />
+                        </font>
+                     </Text>
+                  </children>
+               </HBox>
+            </top>
+           </BorderPane>
+           <BorderPane fx:id="filteredImagePane">
+              <center>
+                  <ImageView fx:id="filteredImageView" fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                      <viewport>
+                          <Rectangle2D minX="350.0" minY="350.0" />
+                      </viewport>
+                      <Image url="@../../images/empty.jpg" />
+                  </ImageView>
+              </center>
+            <top>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Filtered" textAlignment="CENTER">
+                       <font>
+                           <Font size="24.0" />
+                       </font>
+                    </Text>
+                </HBox>
+            </top>
+           </BorderPane>
+       </SplitPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="850.0" prefWidth="1219.0" style="-fx-background-color: #1C2626;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="masterproject.client.MatricesCalculator">
+   <top>
+      <HBox alignment="CENTER" prefWidth="1219.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane HBox.hgrow="ALWAYS">
+               <children>
+                    <Button fx:id="backButton" mnemonicParsing="false" onAction="#backToLanding" prefHeight="38.0" prefWidth="100.0" style="-fx-border-color: #552D96; -fx-border-width: 2px; -fx-font-weight: bold;" text="Back" textFill="#552d96" />
+               </children>
+            </Pane>
+            <Pane HBox.hgrow="NEVER">
+               <children>
+                   <Button mnemonicParsing="false" onAction="#applyOperation" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #552D96; -fx-font-weight: bold;" text="Calculate" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+             <VBox alignment="CENTER_LEFT" prefHeight="127.0" prefWidth="1178.0" BorderPane.alignment="CENTER">
+                 <children>
+                     <Label prefHeight="49.0" prefWidth="162.0" text="Choose the operation " textFill="WHITE">
+                         <font>
+                             <Font size="16.0" />
+                         </font>
+                     </Label>
+                     <ComboBox fx:id="combOperation" maxWidth="1.7976931348623157E308" onAction="#Select" prefHeight="50.0" promptText="Operation" style="-fx-pref-width: 1000%;" />
+                 </children>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
+             </VBox>
+         </top>
+         <center>
+             <VBox prefHeight="200.0" prefWidth="100.0">
+                 <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" spacing="20.0">
+                     <VBox.margin>
+                         <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <VBox fx:id="matrix1Box" prefHeight="200.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                         <Label fx:id="labelMatrix1" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" text="Matrix1:" textFill="WHITE" VBox.vgrow="NEVER">
+                             <font>
+                                 <Font size="18.0" />
+                             </font>
+                         </Label>
+                     </VBox>
+                     <VBox fx:id="matrix2Box" prefHeight="200.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                         <Label fx:id="labelMatrix2" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" text="Matrix2:" textFill="WHITE" VBox.vgrow="NEVER">
+                             <font>
+                                 <Font size="18.0" />
+                             </font>
+                         </Label>
+                     </VBox>
+                    <VBox fx:id="resultBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" HBox.hgrow="ALWAYS">
+                        <Label fx:id="finalResult" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" text="Result:" textFill="WHITE">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </VBox>
+                 </HBox>
+             </VBox>
+         </center>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <bottom>
+         
+                        
+                            <DialogPane fx:id="feedbackDialog" contentText="Server is not connected" headerText="Warning" prefHeight="120.0" prefWidth="535.0" style="-fx-padding: 20px; -fx-border-radius: 12px; -fx-background-radius: 12px; -fx-background-color: #151D1D; -fx-border-color: #552D96; -fx-border-width: 2px;" BorderPane.alignment="CENTER">
+                 <opaqueInsets>
+                     <Insets />
+                 </opaqueInsets>
+                 <header>
+                     <Text fx:id="feedbackTitle" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning" textAlignment="CENTER" wrappingWidth="517.30078125">
+                         <font>
+                             <Font name="System Bold" size="24.0" />
+                         </font>
+                     </Text>
+                 </header>
+                 <content>
+                     <Text fx:id="feedbackContent" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Server is disconnected" textAlignment="CENTER" wrappingWidth="524.0556640625">
+                         <font>
+                             <Font size="18.0" />
+                         </font>
+                     </Text>
+                 </content>
+             </DialogPane>
+         </bottom>
+      </BorderPane>
+   </center>
+</BorderPane>
